@@ -1,0 +1,182 @@
+#================= 
+
+O(1)
+
+O(log n)
+
+O(n)
+
+O(n log n)
+
+O(n^2)
+# ---------------------------------------------
+O(1) < O(log n) < O(n) < O(n log n) < O(n^2)
+# ---------------------------------------------
+
+# =================
+
+
+Time Complexity
+
+# The Time Complexcity is based on the INPUT
+
+
+# CONSTANT TIME O(1)
+|
+|
+|
+|____________ Constant Time
+|
+|____________________________
+
+O(1)
+an addition / multiplication / division
+
+# executes __ONLY ONE__ task
+
+# the execution will be the same, whatever the input is
+
+# example
+# 5 + 4
+# 4 * 7
+
+# ========
+
+
+# LINEAR TIME O(N)
+
+|                   * Linear Time
+|               *
+|           *
+|       *
+|   *
+|____________________________
+
+O(n)
+A for loop for example
+
+# (1..10).to_a.each do |num|
+#   # calculations
+# end
+
+
+# =========
+
+# QUADRATIC TIME O(N^2)
+
+|      *
+|     *
+|    *
+|   *
+|  *
+|*____________________________
+
+O(n^2)
+
+Two for loop for example - which is a nested for loop
+
+# (1..10).to_a.each do |num|
+#   # calculations
+#   (1..10).to_a.each do |num|
+#     # calculations
+#   end
+# end
+
+
+# =======  LOGARITHMIC  ==========
+
+O(log n)
+
+# It divides the input
+
+# Example:
+Log 2^8 = ? - (2 x 2 x 2)
+
+|
+|          *  * * * * * * * * * * * 
+|       *
+|    *
+|  *
+|*____________________________
+
+
+# def func(n)
+#   return n if n == 1
+#   n = (n / 2)
+#   func(n)
+# end
+
+
+# The iteration has been cutted into half
+
+# ====================================
+
+O(n log n)
+
+|         *
+|        * 
+|       * 
+|      *
+|   *
+|*____________________________
+
+
+
+O(n log n)
+
+# It divides the input and runs the loop for the given input
+
+# divides and run the for loop inside the parent dividing nth loop
+
+# Example
+
+
+# def func(n)
+#   y = n
+#   while (n > 1) do              # O(logn)
+#     n = (n / 2)
+#     y.times do                  # O(n)
+#       # calculations
+#     end
+#   end
+# end
+
+so, O(n) * O(log n) = O(n log n)
+
+# ====================================
+
+SORT ALOGORITHM
+
+# Insertion Sort 
+# O(n^2)
+def insertion_sort(array)
+  array.each_with_index do |ele, index|   # # O(n)
+    current = array[index]
+    prev_index = index - 1 
+    while prev_index >= 0 && array[prev_index] > current do   # # O(n)
+      array[prev_index + 1] = array[prev_index]
+      prev_index -= 1
+    end
+    array[prev_index + 1] = current
+  end
+end
+
+puts "insertion_sort => #{insertion_sort([5,8,1])}"
+
+# ====================================
+
+# Bubble Sort
+# O(n^2)
+def bubble_sort(array)
+  array.each_with_index do |ele, index|       #   O(N)
+    (1..array.length-1).to_a.each_with_index do |dup_ele, dup_index|  # O(N)
+      if (array[dup_index] > array[index])
+        temp = array[dup_index]
+        array[dup_index] = array[dup_index-1]
+        array[dup_index-1] = temp
+      end
+    end
+  end
+end
+
+puts "bubble_sort => #{bubble_sort([9,5,1])}"
