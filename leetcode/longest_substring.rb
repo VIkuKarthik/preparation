@@ -5,7 +5,7 @@
 
 # There will be two pointer at the initial state
 # One of the pointer will move in the forward direction, while the other stay
-# The character will the tracked in an Hash with Character as key and Index as a value
+# The character will be tracked in an Hash with Character as key and Index as a value
 # If a repeating character has found, 
 # The Pointer B will be incremented, with respect to the place of the tracked character only if this is greater than Pointer B.
 
