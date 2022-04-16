@@ -35,7 +35,7 @@ puts is_anagram('rat', 'cat')
 
 # SIMPLE
 
-def min_steps(s, t)
+def is_anagram_1(s, t)
   hash = Hash.new(0)
 
   s.each_char {|char| hash[char] += 1}
@@ -43,8 +43,9 @@ def min_steps(s, t)
 
   sum = 0
   hash.each {|k, v| sum += v}
-  return true if sum == 0
+  sum == 0
 end
 
-puts min_steps('is_anagram', 'is_anagram')
-puts min_steps('rat', 'cat')
+puts is_anagram_1('is_anagram', 'is_anagram')
+puts is_anagram_1('rat', 'cat')
+puts is_anagram_1('ab', 'a')
