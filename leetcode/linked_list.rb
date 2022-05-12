@@ -26,8 +26,15 @@ class LinkedList
       @head = Node.new(value)
     else
       new_node = Node.new(value)
-      @head.next_node = new_node
+      current_node = @head
+      while current_node != nil do
+        last_node = current_node
+        current_node = current_node.next_node
+      end
+      
+      last_node.next_node = new_node
     end
+    @head
   end
 
   # remove the first node and return it
