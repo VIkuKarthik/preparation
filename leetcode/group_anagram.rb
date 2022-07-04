@@ -19,4 +19,10 @@ def group_anagrams(strs)
   lookup.values.inspect
 end
 
+
+# Alternate Ans
+# def group_anagrams(strs)
+#   strs.group_by {|str| str.chars.sort.join}.values
+# end
+
 puts group_anagrams(["eat","tea","tan","ate","nat","bat"])
