@@ -17,6 +17,7 @@
 # USING HASH
 def check_inclusion(s1, s2)
   return false if s2.length > 10**4
+  return false if s1.size > s2.size
   left = 0
   right = s1.length-1
   s1_hash = Hash.new(0)
@@ -68,6 +69,7 @@ p "-"*26
 
 # Efficient method - Sliding Window Technique
 def check_inclusion(s1, s2)
+  return false if s1.size > s2.size
   s1_array = [0] * 26
   s2_array = [0] * 26
   counter = 0
