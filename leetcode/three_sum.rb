@@ -18,7 +18,7 @@ def three_sum(nums)
   result = []
   
   nums.each_with_index do |num, index|
-    next if (index >= 0) and (num == nums[index-1])
+    next if (index > 0) and (num == nums[index-1])
 
     left = index+1
     right = nums.length-1
@@ -33,7 +33,7 @@ def three_sum(nums)
       else
         result << [nums[left] , nums[right] , num]
         left += 1
-        while (nums[left] == nums[left+1]) and (left < right) do
+        while (nums[left] == nums[left-1]) and (left < right) do
           left += 1
         end
       end
