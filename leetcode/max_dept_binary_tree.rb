@@ -85,6 +85,23 @@ def max_depth(root)
   max
 end
 
+
+# Bottom up solution
+def max_depth(root)
+  @depth = 0
+  dfs(root)
+  @depth
+end
+
+def dfs(root)
+  return 0 if root.nil?
+
+  left = dfs(root.left)
+  right = dfs(root.right)
+  @depth = 1 + [left, right].max
+end
+
+
 tree = TreeNode.new(4, TreeNode.new(2, TreeNode.new(1), TreeNode.new(3)), TreeNode.new(7, TreeNode.new(6), TreeNode.new(9, TreeNode.new(1), TreeNode.new(2))))
 
 p max_depth(tree)
