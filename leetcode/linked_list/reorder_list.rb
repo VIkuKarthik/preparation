@@ -70,3 +70,20 @@ l2 = ListNode.new(1, ListNode.new(2, ListNode.new(3, ListNode.new(4, ListNode.ne
 
 puts reorder_list(l1)
 puts reorder_list(l2)
+
+=begin
+
+1 2 3 4 5
+
+Split
+1 2 3           4 5
+
+Reverse Second
+1 2 3           5 4
+
+Merge
+1 5 4           2 3
+1 5 2 3         4
+1 5 2 4 3       
+
+=end
