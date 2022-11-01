@@ -10,13 +10,9 @@ def group_anagrams(strs)
 
   strs.each do |str|
     sorted_str = str.chars.sort.join
-    if lookup[sorted_str]
-      lookup[sorted_str] << str
-    else
-      lookup[sorted_str] << str
-    end
+    lookup[sorted_str] << str
   end
-  lookup.values.inspect
+  lookup.values
 end
 
 
@@ -25,4 +21,4 @@ end
 #   strs.group_by {|str| str.chars.sort.join}.values
 # end
 
-puts group_anagrams(["eat","tea","tan","ate","nat","bat"])
+p group_anagrams(["eat","tea","tan","ate","nat","bat"])
