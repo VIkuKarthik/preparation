@@ -1,22 +1,24 @@
-# Given two integer arrays preorder and inorder 
-# where preorder is the preorder traversal of a binary tree and 
-# inorder is the inorder traversal of the same tree, construct and return the binary tree.
+=begin
 
-#         3
-#       /   \
-#     9      20
-#           /  \
-#         15    7
-# 
-# 
-# Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
-# Output: [3,9,20,null,null,15,7]
+https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
 
-# Input: preorder = [-1], inorder = [-1]
-# Output: [-1]
+Given two integer arrays preorder and inorder 
+where preorder is the preorder traversal of a binary tree and 
+inorder is the inorder traversal of the same tree, construct and return the binary tree.
 
+      3
+    /   \
+  9      20
+        /  \
+      15    7
 
+Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+Output: [3,9,20,null,null,15,7]
 
+Input: preorder = [-1], inorder = [-1]
+Output: [-1]      
+
+=end
 
 
 # Definition for a binary tree node.
