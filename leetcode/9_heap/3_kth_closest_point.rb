@@ -1,5 +1,3 @@
-require 'pry'
-
 =begin
 
 K Closest Points to Origin
@@ -24,91 +22,6 @@ We only want the closest k = 1 points from the origin, so the answer is just [[-
 =end
 
 class MinHeap
-  attr_accessor :data
-
-  def initialize
-    @data = []
-  end
-
-  def push(val)
-    data << val
-
-    parent_index = parent(data.length - 1)
-    compare_up(parent_index)
-  end
-
-  def pop
-    return nil if data.length == 0
-
-    smallest_value = data[0]
-    data[0] = data.pop
-    compare_down(0)
-
-    smallest_value[1]
-  end
-
-  private
-
-  def compare_up(parent_index)
-    heap = heapify(parent_index)
-
-    compare_up(parent(parent_index)) if heap && parent_index > 0
-  end
-
-  def compare_down(parent_index)
-    heap = heapify(parent_index)
-
-    compare_down(heap) if heap
-  end
-
-
-  def heapify(parent_index)
-    head = parent_index
-    left_index = left(parent_index)
-    right_index = right(parent_index)
-
-    head = left_index if data[left_index] && data[left_index][0] < data[head][0]
-    head = right_index if data[right_index] && data[right_index][0] < data[head][0]
-
-    return if head == parent_index
-
-    data[parent_index], data[head] = data[head], data[parent_index]
-
-    head
-  end
-
-
-  def left(index)
-    2 * index + 1
-  end
-
-  def right(index)
-    2 * index + 2
-  end
-
-  def parent(index)
-    (index - 1) / 2
-  end
-end
-
-
-
-
-def k_closest(points, k)
-  heap = MinHeap.new
-  result = []
-
-  points.each do |point|
-    diff = (point[0] ** 2) + (point[1] ** 2)
-    heap.push([diff, point])
-  end
-
-  while k > 0
-    result << heap.pop
-    k -= 1
-  end
-  result
-endclass MinHeap
   attr_accessor :data
 
   def initialize
