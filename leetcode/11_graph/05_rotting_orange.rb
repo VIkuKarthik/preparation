@@ -48,7 +48,7 @@ def oranges_rotting(grid)
     fresh -= 1
   end
 
-  while !queue.empty? do
+  while !queue.empty? && fresh > 0 do
     queue.length.times do
       row, col = queue.shift
       add_fresh.call(row + 1, col)
