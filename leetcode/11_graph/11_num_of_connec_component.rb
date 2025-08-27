@@ -29,40 +29,50 @@ Output:
 
 def connected_component(n, edges)
   parent = (0..n-1).to_a
-  rank = [0] * (n)
+  rank = [1] * (n)
 
-  compress = ->(node) do
-    return node if (parent[node] == node)
+  find = ->(node) do
+    res = node
 
-    compress.call(parent[node])
+    while res != parent[res] do
+      parent[res] = parent[parent[res]] # path compression
+      res = parent[res]
+    end
+    res
   end
+
 
   connect = ->(ele1, ele2) do
-    if rank[ele1] >= rank[ele2]
-      parent[ele2] = ele1
-      rank[ele1] += 1
-      parent[ele2] = compress.call(ele2)
+    node1 = find.call(ele1)
+    node2 = find.call(ele2)
+
+
+    return 0 if node1 == node2
+
+    if rank[node2] > rank[node1]
+      parent[node1] = node2
+      rank[node2] += rank[node1]
     else
-      parent[ele1] = ele2
-      rank[ele2] += 1
-      parent[ele1] = compress.call(ele1)
+      parent[node2] = node1
+      rank[node1] += rank[node2]
     end
+    return 1
   end
 
+  result = n
   edges.each do |arr|
-    connect.call(arr[0], arr[1])
+    result -= connect.call(arr[0], arr[1])
   end
 
-  p parent
-  parent.group_by{|ele| ele}.count
+  result
 end
 
-# n=6
-# edges=[[0,1], [1,2], [2,3], [4,5]]
+n=6
+edges=[[0,1], [1,2], [2,3], [4,5]]
 
 # n=3
 # edges = [[0,1], [0,2]]
 
-n= 9
-edges = [[0,1], [1,3], [2,4], [8,7], [7,6]]
+# n= 9
+# edges = [[0,1], [1,3], [2,4], [8,7], [7,6]]
 p connected_component(n, edges)
