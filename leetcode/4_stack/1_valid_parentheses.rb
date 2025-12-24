@@ -2,8 +2,8 @@
 
 https://leetcode.com/problems/valid-parentheses/description/
 
-Given a string s containing just the characters 
-'(', ')', '{', '}', '[' and ']', 
+Given a string s containing just the characters
+'(', ')', '{', '}', '[' and ']',
 determine if the input string is valid.
 
 An input string is valid if:
@@ -52,3 +52,26 @@ end
 
 p is_valid('[]')
 
+
+p "-"*26
+# SIMPLE - gte>1
+
+def is_valid(string)
+  lookup = {
+    ")" => "(",
+    ']' => "[",
+    "}" => "{"
+  }
+  stack = []
+
+  string.chars.each do |char|
+    if lookup[char]
+      return false unless stack.pop == lookup[char]
+      next
+    end
+    stack << char
+  end
+  stack.empty?
+end
+
+p is_valid('[]')
