@@ -1,17 +1,30 @@
 =begin
-  Given two integers a and b, return the sum of
-  the two integers without using
-  the operators + and -.
+  Given an array nums containing n distinct
+  numbers in the range [0, n], return the
+  only number in the range that is missing
+  from the array.
 
   Example 1:
 
-  Input: a = 1, b = 2
-  Output: 3
+  Input: nums = [3,0,1]
+  Output: 2
+
+  Explanation:
+  n = 3 since there are 3 numbers, so all numbers
+  are in the range [0,3]. 2 is the missing number
+  in the range since it does not appear in nums.
 
   Example 2:
 
-  Input: a = 2, b = 3
-  Output: 5
+  Input: nums = [0,1]
+  Output: 2
+
+  Explanation:
+
+  n = 2 since there are 2 numbers,
+  so all numbers are in the range [0,2]. 2 is
+  the missing number in the range since it does not
+  appear in nums.
 =end
 
 def missing_number(nums)
