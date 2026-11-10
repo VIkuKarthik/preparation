@@ -53,6 +53,7 @@ def find_cheapest_price(n, flights, src, dst, k)
 end
 
 
+# Algorithm: Bellman Ford
 # Relaxation - Iterative
 def cheapest_dsa(n, flights, src, dst, k)
   prices = Array.new(n, Float::INFINITY)

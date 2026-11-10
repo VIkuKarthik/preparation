@@ -13,6 +13,8 @@
 
   Input: points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
   Output: 20
+
+	Algorithm: Prim's
 =end
 
 class MinHeap

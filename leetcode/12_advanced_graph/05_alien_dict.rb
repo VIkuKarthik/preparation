@@ -18,6 +18,8 @@ A string a is lexicographically smaller than a string b if either of the followi
 Example 1:
   Input: ["hrn","hrf","er","enn","rfnn"]
   Output: "hernf"
+
+  Algorithm: Topological Sort
 =end
 
 
